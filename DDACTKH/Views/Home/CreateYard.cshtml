@@ -1,0 +1,33 @@
+﻿@model DDACTKH.Models.Yard
+@{
+    ViewBag.Title = "Create Yard";
+}
+<h2>Create Yard</h2>
+<p>
+    @using (Html.BeginForm("CreateYard", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                <label for="yardName">Yard Name</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardName)
+            </div>
+            <div class="editor-label">
+                <label for="yardLocation">Yard Locations</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardLocation)
+            </div>
+            <div class="editor-label">
+                <label for="yardCountry">Yard Country</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardCountry)
+            </div>
+        </fieldset>
+    <p>
+        <input type="submit" value="Create Yard" />
+    </p>
+    }
+    </p>

@@ -1,0 +1,38 @@
+﻿@model List<DDACTKH.Models.Yard>
+
+@{
+    ViewBag.Title = "View Yard";
+}
+
+<style>
+    table, tr, td {
+        border: solid 1px;
+    }
+</style>
+
+<h2>View Yard</h2>
+<p>@Html.ActionLink("Create New Yard", "CreateYard", "Home")</p>
+<p>
+    @using (Html.BeginForm("ViewYard", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <table style="width:100%;">
+                <tr>
+                    <td style="background-color:black; text-align:center; color:white">Yard Name</td>
+                    <td style="background-color:black; text-align:center; color:white">Yard Location</td>
+                    <td style="background-color:black; text-align:center; color:white">Yard Country</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.yardName</td>
+                        <td>@item.yardLocation</td>
+                        <td>@item.yardCountry</td>
+                        <td>@Html.ActionLink("Edit", "EditYard", new { yardName = @item.yardName })</td>
+                        <td>@Html.ActionLink("Delete", "DeleteYard", new { yardName = @item.yardName })</td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+</p>

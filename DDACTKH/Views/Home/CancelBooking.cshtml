@@ -1,0 +1,37 @@
+﻿@model List<DDACTKH.Models.Booking>
+
+@{
+    ViewBag.Title = "Cancel Booking";
+}
+
+<style>
+    table, tr, td {
+        border: solid 1px;
+    }
+</style>
+
+<h2>Cancel Booking</h2>
+<p>@Html.ActionLink("Create New Booking", "NewBooking", "Home")</p>
+<p>
+    @using (Html.BeginForm("CancelBooking", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <table style="width:100%;">
+                <tr>
+                    <td style="background-color:black; text-align:center; color:white">Booking Id</td>
+                    <td style="background-color:black; text-align:center; color:white">Schedule Id</td>
+                    <td style="background-color:black; text-align:center; color:white">Booking Date</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.bookingId</td>
+                        <td>@item.scheduleId</td>
+                        <td>@item.bookingDate</td>
+                        <td>@Html.ActionLink("Cancel this booking", "CancelMyBooking", new { bookingId = @item.bookingId })</td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+</p>

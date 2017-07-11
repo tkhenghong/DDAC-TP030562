@@ -1,0 +1,41 @@
+﻿@model DDACTKH.Models.Vessel
+@{
+    ViewBag.Title = "Create Vessel";
+}
+<form method="post">
+    <h1>Create New Vessel</h1>
+    <p>
+        @using (Html.BeginForm("CreateVessel", "Home", FormMethod.Post, null))
+        {
+            <fieldset>
+                <div class="editor-label">
+                    <label for="vesselName">Vessel Name</label>
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.vesselName)
+                </div>
+                <div class="editor-label">
+                    <label for="containers">Containers</label>
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.containers)
+                </div>
+                <div class="editor-label">
+                    <label for="destinationYard">Destination Yard</label>
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.destinationYard)
+                </div>
+                <div class="editor-label">
+                    <label for="arrivalYard">Arrival Yard</label>
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.arrivalYard)
+                </div>
+            </fieldset>
+        <p>
+            <input type="submit" value="Create Yard" />
+        </p>
+        }
+    </p>
+</form>

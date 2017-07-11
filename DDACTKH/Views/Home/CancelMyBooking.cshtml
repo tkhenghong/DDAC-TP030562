@@ -1,0 +1,42 @@
+﻿@model DDACTKH.Models.Booking
+@{
+    ViewBag.Title = "Cancel My Booking";
+}
+
+<h2>Cancel My Booking</h2>
+<p>
+    @using (Html.BeginForm("CancelMyBooking", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                <label for="bookingId">Booking Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.bookingId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="scheduleId">Schedule Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.scheduleId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="bookingDate">Booking Date</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.bookingDate,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+        </fieldset>
+        <br />
+    <p>Are you sure you want to cancel this booking?</p>
+        <p>
+            <input type="submit" value="Yes">
+        </p>
+        <p>
+            <button>@Html.ActionLink("No", "CancelBooking", "Home")</button>
+        </p>
+    }
+    </p>

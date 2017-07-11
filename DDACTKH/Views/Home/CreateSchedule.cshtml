@@ -1,0 +1,99 @@
+﻿@model DDACTKH.Models.Schedule
+
+@{
+    ViewBag.Title = "Create Schedule";
+}
+
+
+<h2>Create New Schedule</h2>
+
+<form method="post">
+    <p>
+        @using (Html.BeginForm("CreateSchedule", "Home", FormMethod.Post, null))
+        {
+            <fieldset>
+                <div class="form-group">
+                    <h3>Cargo Details</h3>
+                    <div class="editor-label">
+                        <label for="scheduleId">Schedule Id</label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.scheduleId)
+                    </div>
+                    <br/>
+                    <label id="Label1" Font-Size="10pt">List of Cargo :</label>
+
+                    <select id="cargoID" style="min-width: 900px">
+                        @foreach (var item in Model.cargoList)
+                        {
+                            <option value=@item.cargoId>Cargo Id: @item.cargoId ~~~~ @item.cargoName ~ @item.cargoDeparture ~ @item.cargoArrival ~ @item.cargoVolume</option>
+                        }
+                    </select><br />
+
+                    <div class="editor-label">
+                        <label for="cargoId">Type in the Cargo Id : </label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.selectedCargoId)
+                    </div>
+                    <br/>
+                    <div class="editor-label">
+                        <label for="departureDate">Departure Date</label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.departureDate,
+                            new { htmlAttributes = new { @class = "datefield", type = "date" } })
+                    </div>
+                    <div class="editor-label">
+                        <label for="arrivalDate">Arrival Date</label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.arrivalDate,
+                            new { htmlAttributes = new { @class = "datefield", type = "date" } })
+                    </div>
+                    <br />
+                </div>
+
+                <div>
+                    <h2>Yard Details</h2>
+                    <label id="Label6" Font-Size="10pt">List of Yard : </label>
+
+                    <select id="yardName" style="min-width: 900px">
+                        @foreach (var item in Model.yardList)
+                        {
+                            <option value=@item.yardName>Yard name: @item.yardName ~~~~ @item.yardLocation ~ @item.yardCountry</option>
+                        }
+                    </select><br />
+
+                    <div class="editor-label">
+                        <label for="yardName">Type in the Yard Name : </label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.selectedYardName)
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Vessel Details</h2>
+                    <label id="Label9" Font-Size="10pt">Select Vessel : </label>
+
+                    <select id="vesselName" style="min-width: 900px">
+                        @foreach (var item in Model.vesselList)
+                        {
+                            <option value=@item.vesselName>Vessel name: @item.vesselName ~~~~ @item.containers ~ @item.destinationYard ~ @item.arrivalYard</option>
+                        }
+                    </select><br />
+
+                    <div class="editor-label">
+                        <label for="vesselName">Type in the Vessel Name : </label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.selectedVesselName)
+                    </div>
+                </div>
+                <br/>
+                <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
+            </fieldset>
+        }
+    </p>
+</form>

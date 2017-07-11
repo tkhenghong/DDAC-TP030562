@@ -1,0 +1,64 @@
+﻿@model DDACTKH.Models.Schedule
+@{
+    ViewBag.Title = "Delete Schedule";
+}
+
+<h2>Delete Schedule</h2>
+<p>
+    @using (Html.BeginForm("DeleteSchedule", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                <label for="scheduleId">Schedule Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.scheduleId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="selectedCargoId">Cargo Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.selectedCargoId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="selectedYardName">Yard Name</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.selectedYardName,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="selectedYardName">Vessel Name</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.selectedVesselName,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="departureDate">Departure Date</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.departureDate,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="arrivalDate">Arrival Date</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.arrivalDate,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+        </fieldset>
+        <br />
+    <p>Are you sure you want to delete this schedule?</p>
+        <p>
+            <input type="submit" value="Yes">
+        </p>
+        
+    }
+<p>
+    <button>@Html.ActionLink("No", "ViewSchedule", "Home")</button>
+</p>
+    </p>

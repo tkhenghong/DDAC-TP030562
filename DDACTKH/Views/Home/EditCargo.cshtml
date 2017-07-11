@@ -1,0 +1,48 @@
+﻿@model DDACTKH.Models.Cargo
+@{
+    ViewBag.Title = "Edit Cargo";
+}
+
+<h2>Edit Cargo</h2>
+<p>
+    @using (Html.BeginForm("EditCargo", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoId)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoName)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoDeparture)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoDeparture)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoArrival)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoArrival)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoVolume)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoVolume)
+            </div>
+        </fieldset>
+        <br/>
+    <p>
+        <input type="submit" value="Save Changes">
+    </p>
+    }
+    </p>

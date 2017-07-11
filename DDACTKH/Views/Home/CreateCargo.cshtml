@@ -1,0 +1,46 @@
+﻿@model DDACTKH.Models.Cargo
+@{
+    ViewBag.Title = "Create Cargo";
+}
+
+<h2>Create New Cargo</h2>
+<p>
+    @using (Html.BeginForm("CreateCargo", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                <label for="cargoId">Cargo Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoId)
+            </div>
+            <div class="editor-label">
+                <label for="cargoName">Cargo Name</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoName)
+            </div>
+            <div class="editor-label">
+                <label for="cargoDeparture">Cargo Departure</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoDeparture)
+            </div>
+            <div class="editor-label">
+                <label for="cargoArrival">Cargo Arrival</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoArrival)
+            </div>
+            <div class="editor-label">
+                <label for="cargoVolume">Cargo Volume</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoVolume)
+            </div>
+        </fieldset>
+    <p>
+        <input type="submit" value="Create Cargo" />
+    </p>
+    }
+    </p>

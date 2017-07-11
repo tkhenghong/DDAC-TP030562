@@ -1,0 +1,36 @@
+﻿@model DDACTKH.Models.Yard
+@{
+    ViewBag.Title = "Edit Yard";
+}
+
+<h2>Edit Yard</h2>
+<p>
+    @using (Html.BeginForm("EditYard", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.yardName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardName,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.yardLocation)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardLocation)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.yardCountry)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardCountry)
+            </div>
+        </fieldset>
+        <br />
+    <p>
+        <input type="submit" value="Save Changes">
+    </p>
+    }
+    </p>

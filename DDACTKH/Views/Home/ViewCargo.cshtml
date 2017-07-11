@@ -1,0 +1,43 @@
+﻿@model List<DDACTKH.Models.Cargo>
+
+@{
+    ViewBag.Title = "View Cargo";
+}
+
+<style>
+    table, tr, td {
+        border: solid 1px;
+
+    }
+</style>
+
+<h2>View Cargo</h2>
+<p>@Html.ActionLink("Create New Cargo", "CreateCargo", "Home")</p>
+<p>
+    @using (Html.BeginForm("ViewCargo", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <table style="width:100%;">
+                <tr >
+                    <td style="background-color:black; text-align:center; color:white">Cargo Id</td>
+                    <td style="background-color:black; text-align:center; color:white">Cargo Name</td>
+                    <td style="background-color:black; text-align:center; color:white">Cargo Departure</td>
+                    <td style="background-color:black; text-align:center; color:white">Cargo Arrival</td>
+                    <td style="background-color:black; text-align:center; color:white">Cargo Volume</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cargoId</td>
+                        <td>@item.cargoName</td>
+                        <td>@item.cargoDeparture</td>
+                        <td>@item.cargoArrival</td>
+                        <td>@item.cargoVolume</td>
+                        <td>@Html.ActionLink("Edit", "EditCargo", new { cargoId = @item.cargoId })</td>
+                        <td>@Html.ActionLink("Delete", "DeleteCargo", new { cargoId = @item.cargoId })</td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+    </p>

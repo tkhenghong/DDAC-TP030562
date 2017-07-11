@@ -1,0 +1,44 @@
+﻿@model List<DDACTKH.Models.Schedule>
+
+@{
+    ViewBag.Title = "View Schedule";
+}
+
+<style>
+    table, tr, td {
+        border: solid 1px;
+    }
+</style>
+
+<h2>View Schedule</h2>
+<p>@Html.ActionLink("Create New Schedule", "CreateSchedule", "Home")</p>
+<p>
+    @using (Html.BeginForm("ViewSchedule", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <table style="width:100%;">
+                <tr>
+                    <td style="background-color:black; text-align:center; color:white">Schedule Id</td>
+                    <td style="background-color:black; text-align:center; color:white">Cargo Id</td>
+                    <td style="background-color:black; text-align:center; color:white">Vessel Name</td>
+                    <td style="background-color:black; text-align:center; color:white">Yard Name</td>
+                    <td style="background-color:black; text-align:center; color:white">Departure Date</td>
+                    <td style="background-color:black; text-align:center; color:white">Arrival Date</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.scheduleId</td>
+                        <td>@item.selectedCargoId</td>
+                        <td>@item.selectedVesselName</td>
+                        <td>@item.selectedYardName</td>
+                        <td>@item.departureDate</td>
+                        <td>@item.arrivalDate</td>
+                        <td>@Html.ActionLink("Edit", "EditSchedule", new { scheduleId = @item.scheduleId })</td>
+                        <td>@Html.ActionLink("Delete", "DeleteSchedule", new { scheduleId = @item.scheduleId })</td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+</p>

@@ -1,0 +1,58 @@
+﻿@model DDACTKH.Models.Cargo
+@{
+    ViewBag.Title = "Delete Cargo";
+}
+
+<h2>Delete Cargo</h2>
+<p>
+    @using (Html.BeginForm("DeleteCargo", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoId)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoName,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoDeparture)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoDeparture,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoArrival)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoArrival,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cargoVolume)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cargoVolume,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+        </fieldset>
+        <br />
+        <p>Are you sure you want to delete this cargo?</p>
+    <p>
+        <input type="submit" value="Yes">
+    </p>
+    
+    }
+<p>
+    <button>@Html.ActionLink("No", "ViewCargo", "Home")</button>
+</p>
+
+    </p>

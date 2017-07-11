@@ -1,0 +1,50 @@
+﻿@model DDACTKH.Models.Vessel
+@{
+    ViewBag.Title = "Delete Vessel";
+}
+
+<h2>Delete Vessel</h2>
+<p>
+    @using (Html.BeginForm("DeleteVessel", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.vesselName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.vesselName,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.containers)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.containers,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.destinationYard)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.destinationYard,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.arrivalYard)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.arrivalYard,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+        </fieldset>
+        <br />
+    <p>Are you sure you want to delete this vessel?</p>
+    <p>
+        <input type="submit" value="Yes">
+    </p>
+    
+    }
+<p>
+    <button>@Html.ActionLink("No", "ViewVessel", "Home")</button>
+</p>
+    </p>

@@ -1,0 +1,30 @@
+﻿@model DDACTKH.Models.Booking
+@{
+    ViewBag.Title = "Create Booking";
+}
+
+<h2>Create Booking</h2>
+<p>
+    @using (Html.BeginForm("CreateBooking", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                <label for="bookingId">Booking Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.bookingId)
+            </div>
+            <div class="editor-label">
+                <label for="scheduleId">Schedule Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.scheduleId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+        </fieldset>
+        <br />
+    <p>
+        <input type="submit" value="Save Changes">
+    </p>
+    }
+    </p>

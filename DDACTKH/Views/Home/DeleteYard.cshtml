@@ -1,0 +1,43 @@
+﻿@model DDACTKH.Models.Yard
+@{
+    ViewBag.Title = "Delete Yard";
+}
+
+<h2>Delete Yard</h2>
+<p>
+    @using (Html.BeginForm("DeleteYard", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.yardName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardName,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.yardLocation)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardLocation,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.yardCountry)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.yardCountry,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+        </fieldset>
+        <br />
+    <p>Are you sure you want to delete this yard?</p>
+    <p>
+        <input type="submit" value="Yes">
+    </p>
+    
+    }
+<p>
+    <button>@Html.ActionLink("No", "ViewYard", "Home")</button>
+</p>
+    </p>

@@ -1,0 +1,40 @@
+﻿@model List<DDACTKH.Models.Vessel>
+
+@{
+    ViewBag.Title = "View Vessel";
+}
+
+<style>
+    table, tr, td {
+        border: solid 1px;
+    }
+</style>
+
+<h2>View Vessel</h2>
+<p>@Html.ActionLink("Create New Vessel", "CreateVessel", "Home")</p>
+<p>
+    @using (Html.BeginForm("ViewVessel", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <table style="width:100%;">
+                <tr>
+                    <td style="background-color:black; text-align:center; color:white">Vessel Name</td>
+                    <td style="background-color:black; text-align:center; color:white">Containers</td>
+                    <td style="background-color:black; text-align:center; color:white">Destination Yard</td>
+                    <td style="background-color:black; text-align:center; color:white">Arrival Yard</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.vesselName</td>
+                        <td>@item.containers</td>
+                        <td>@item.destinationYard</td>
+                        <td>@item.arrivalYard</td>
+                        <td>@Html.ActionLink("Edit", "EditVessel", new { vesselName = @item.vesselName })</td>
+                        <td>@Html.ActionLink("Delete", "DeleteVessel", new { vesselName = @item.vesselName })</td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+</p>

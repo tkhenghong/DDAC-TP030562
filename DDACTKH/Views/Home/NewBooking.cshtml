@@ -1,0 +1,75 @@
+﻿@model List<DDACTKH.Models.Schedule>
+
+@{
+    ViewBag.Title = "New Booking";
+}
+
+<style>
+    table {
+        font-family: "Lato","sans-serif";
+    }
+        /* added custom font-family  */
+
+        table.one {
+            margin-bottom: 3em;
+            border-collapse: collapse;
+        }
+
+    td { /* removed the border from the table data rows  */
+        text-align: center;
+        width: 10em;
+        padding: 1em;
+    }
+
+    th { /* removed the border from the table heading row  */
+        text-align: center;
+        padding: 1em;
+        background-color: #e8503a; /* added a red background color to the heading cells  */
+        color: white;
+    }
+    /* added a white font color to the heading text */
+
+    tr {
+        height: 1em;
+    }
+
+    table tr:nth-child(even) { /* added all even rows a #eee color  */
+        background-color: #eee;
+    }
+
+    table tr:nth-child(odd) { /* added all odd rows a #fff color  */
+        background-color: #fff;
+    }
+
+</style>
+
+<h2>Current Ongoing Bookings</h2>
+<p>
+    @using (Html.BeginForm("NewBooking", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <table style="width:100%;">
+                <tr>
+                    <td style="background-color:orangered; color:white">Schedule Id</td>
+                    <td style="background-color:orangered; color:white">Cargo Id</td>
+                    <td style="background-color:orangered; color:white">Vessel Name</td>
+                    <td style="background-color:orangered; color:white">Yard Name</td>
+                    <td style="background-color:orangered; color:white">Departure Date</td>
+                    <td style="background-color:orangered; color:white">Arrival Date</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.scheduleId</td>
+                        <td>@item.selectedCargoId</td>
+                        <td>@item.selectedVesselName</td>
+                        <td>@item.selectedYardName</td>
+                        <td>@item.departureDate</td>
+                        <td>@item.arrivalDate</td>
+                        <td>@Html.ActionLink("Book this", "CreateBooking", new { scheduleId = @item.scheduleId })</td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+</p>

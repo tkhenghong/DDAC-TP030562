@@ -1,0 +1,55 @@
+﻿@model DDACTKH.Models.Schedule
+@{
+    ViewBag.Title = "Edit Schedule";
+}
+
+<h2>Edit Schedule</h2>
+<p>
+    @using (Html.BeginForm("EditSchedule", "Home", FormMethod.Post, null))
+    {
+        <fieldset>
+            <div class="editor-label">
+                <label for="scheduleId">Schedule Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.scheduleId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="selectedCargoId">Cargo Id</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.selectedCargoId,
+               new { htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+            <div class="editor-label">
+                <label for="selectedYardName">Yard Name</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.selectedYardName)
+            </div>
+            <div class="editor-label">
+                <label for="selectedVesselName">Vessel Name</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.selectedVesselName)
+            </div>
+            <div class="editor-label">
+                <label for="departureDate">Departure Date</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.departureDate)
+            </div>
+            <div class="editor-label">
+                <label for="arrivalDate">Arrival Date</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.arrivalDate)
+            </div>
+        </fieldset>
+        <br />
+    <p>
+        <input type="submit" value="Save Changes">
+    </p>
+    }
+    </p>

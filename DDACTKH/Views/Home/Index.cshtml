@@ -1,0 +1,181 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .dropbtn {
+        background-color: transparent;
+        color: azure;
+        padding: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .dropbtn:hover {
+            color: white;
+        }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #FFFFFF;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #f1f1f1
+            }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropbtn .caret {
+        border-top: 4px solid white;
+    }
+
+
+    .dropdown:hover .dropbtn {
+        color: white;
+    }
+
+    .dropdown-submenu {
+        position: relative;
+    }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+</style>
+
+    <div class="body-content3">
+        <div class="navbar navbar-inverse navbar-fixed-top body-content3">
+            <div class="container body-content3">
+                <div class="navbar-header ">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="navbar-collapse collapse">
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Cargo <span class="caret"></span></button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Create New Cargo", "CreateCargo", "Home")
+                            @Html.ActionLink("View Cargo", "ViewCargo", "Home")
+
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Yard <span class="caret"></span></button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Create New Yard", "CreateYard", "Home")
+                            @Html.ActionLink("View Yard", "ViewYard", "Home")
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Vessel <span class="caret"></span></button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Create New Vessel", "CreateVessel", "Home")
+                            @Html.ActionLink("View Vessel", "ViewVessel", "Home")
+                        </div>
+                    </div>
+
+
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Schedule <span class="caret"></span></button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Create New Schedule", "CreateSchedule", "Home")
+                            @Html.ActionLink("View Schedule", "ViewSchedule", "Home")
+
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Booking <span class="caret"></span></button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("New Booking", "NewBooking", "Home")
+                            @Html.ActionLink("Cancel Booking", "CancelBooking", "Home")
+                        </div>
+                    </div>
+
+
+                    <ul class="pull-right nav navbar-nav">
+
+
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Sign Out", "SignOut", "Account")</li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br />
+    <div class="jumbotron">
+        <h1>
+            <img style="height: 69px; width: 248px;" src="Images/Maersk%20logo.PNG" />
+        </h1>
+        <p class="lead">
+            <h1>This is Central US.</h1> <br />
+            A.P. Moller - Maersk
+            A.P. Moller - Maersk is an integrated transport and logistics company with multiple brands and is a global leader in container shipping and ports. Including a stand-alone Energy division.
+        </p>
+        <p><a href="http://www.maersk.com/en/the-maersk-group/about-us" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img style="height: 200px; width: 300px;" src="Images/maersk%20line.jpg" />
+            </div>
+            <h2>Trade and Transport</h2>
+            <p>
+                To enable and facilitate global supply chains and provide opportunities for our customers to trade globally.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <img style="height: 200px; width: 300px;" src="Images/maerskoil.jpg" />
+            </div>
+            <h2>Energy</h2>
+            <p>
+                To generate efficient and sustainable energy from natural resource to become the driving force in world markets.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <img style="height: 200px; width: 300px;" src="Images/maersk2.jpg" height="234" width="436" />
+            <h2>Growth commitment</h2>
+            <p>
+                Adhering to environmental responsibilities to create growth for the Maersk community and society as a whole.
+            </p>
+        </div>
+    </div>
